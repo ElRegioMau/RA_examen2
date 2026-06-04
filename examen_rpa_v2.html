@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Examen v2 — Razonamiento y Planificación Automática</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="examen_rpa_v2.css">
+</head>
+<body>
+
+<!-- ══════════════════════ PANTALLA INICIO ══════════════════════ -->
+<section id="screen-home">
+  <div class="home-deco"></div>
+  <div class="badge">UNIR · Maestría · Semana 08 · v2</div>
+  <h1>Razonamiento y<br>Planificación Automática</h1>
+  <p class="subtitle">Examen de práctica · Repaso general</p>
+
+  <div class="meta-row">
+    <div class="meta-chip">📋 Preguntas: <span>20 aleatorias</span></div>
+    <div class="meta-chip">🗂 Temas: <span>9 temas</span></div>
+    <div class="meta-chip">🔀 Formatos: <span>Opción múltiple · V/F · Completar</span></div>
+    <div class="meta-chip">⏱ Sin límite de tiempo</div>
+  </div>
+
+  <div class="btn-row">
+    <a class="btn btn-outline" href="URL_DEL_PDF_AQUI" target="_blank" download>
+      📄 Ver Guía
+    </a>
+    <button class="btn btn-primary" onclick="iniciarExamen()">
+      🚀 Iniciar Examen
+    </button>
+  </div>
+
+  <!-- Leyenda de tipos de pregunta -->
+  <div class="format-legend">
+    <span class="fmt-chip fmt-mc">OM</span> Opción múltiple &nbsp;·&nbsp;
+    <span class="fmt-chip fmt-tf">V/F</span> Verdadero / Falso &nbsp;·&nbsp;
+    <span class="fmt-chip fmt-fill">CF</span> Completar frase
+  </div>
+</section>
+
+<!-- ══════════════════════ PANTALLA EXAMEN ══════════════════════ -->
+<section id="screen-exam" style="display:none">
+  <header class="exam-header">
+    <div class="exam-title">RPA · Examen de Práctica v2</div>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+      <div class="progress-label" id="progress-label">0 / 20 respondidas</div>
+    </div>
+  </header>
+
+  <div class="exam-body" id="exam-body"></div>
+
+  <footer class="exam-footer">
+    <span class="answered-count">Respondidas: <strong id="ans-count">0</strong> / 20</span>
+    <button class="btn btn-primary" id="btn-terminar" onclick="terminarExamen()" disabled>
+      ✅ Terminar Examen
+    </button>
+  </footer>
+</section>
+
+<!-- ══════════════════════ PANTALLA RESULTADOS ══════════════════════ -->
+<section id="screen-results" style="display:none">
+  <div class="results-header">
+    <div class="score-ring">
+      <svg viewBox="0 0 140 140">
+        <circle class="score-ring-track" cx="70" cy="70" r="65"/>
+        <circle class="score-ring-fill" id="ring-fill" cx="70" cy="70" r="65"/>
+      </svg>
+      <div class="score-num" id="score-num">—</div>
+    </div>
+    <div class="result-label" id="result-label">—</div>
+    <div class="result-sub" id="result-sub">—</div>
+
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-val" id="stat-correct" style="color:var(--green)">—</div>
+        <div class="stat-lbl">Correctas</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val" id="stat-wrong" style="color:var(--red)">—</div>
+        <div class="stat-lbl">Incorrectas</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val" id="stat-score" style="color:var(--accent)">—</div>
+        <div class="stat-lbl">Calificación</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="incorrect-section" id="incorrect-section"></div>
+
+  <footer class="results-footer">
+    <button class="btn btn-primary" onclick="reiniciar()">🔁 Nuevo Examen</button>
+  </footer>
+</section>
+
+<script src="examen_rpa_v2.js"></script>
+</body>
+</html>
